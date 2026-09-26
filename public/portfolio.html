@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ratikanta Sahoo | Full-Stack &amp; Web Developer Portfolio</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Roboto+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              blue: '#0066FF',
+              electric: '#00E5FF',
+              purple: '#8A2BE2',
+              pink: '#FF2E93',
+              darkBg: '#0A0D14',
+              darkCard: '#111726',
+              darkBorder: '#1E293B',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Playfair Display', 'serif'],
+            mono: ['Roboto Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+  
+  <!-- Custom Attached Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-[#FAF8FF] dark:bg-[#0A0D14] text-slate-800 dark:text-slate-200 font-sans transition-colors duration-300 relative selection:bg-brand-blue selection:text-white overflow-x-hidden">
+
+  <!-- Ambient Light Orbs -->
+  <div class="ambient-orb orb-1"></div>
+  <div class="ambient-orb orb-2"></div>
+  <div class="ambient-orb orb-3"></div>
+
+  <!-- Header / Navigation Bar -->
+  <header class="sticky top-0 z-50 backdrop-blur-xl bg-white/80 dark:bg-[#0A0D14]/85 border-b border-slate-200 dark:border-slate-800/80 transition-colors">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <a href="#home" class="group flex items-center space-x-3">
+        <div class="relative flex-shrink-0">
+          <div class="w-10 h-10 rounded-full p-0.5 bg-gradient-to-tr from-brand-blue via-brand-purple to-brand-pink shadow-lg shadow-brand-blue/20 group-hover:scale-105 transition-transform overflow-hidden">
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwNo0RW5NFmJtAtqMQQM13frml-Ale2g8UKPnZaDfi7zkbGQjSLDSOgKTX_DIWSt_Qo6QI3k6QWGwkUAbKOsxkbSCBZZlERzGeab6k-iovJElBsFRLSLjfoZIRr5sv0LrQh0zNHWwRakHQLZHYA8b72sGV0ExqD5MWsZdRVZsGvg9fYw2fSh5E1i_pePe5SEtBdwlyVhh9kUDdO2MtdKfI7QetYtFHkzbHWQhCYecvb6lH63DC-XiX0_Z6mAVDEQt2Vw" alt="Ratikanta Sahoo" class="w-full h-full object-cover rounded-full">
+          </div>
+          <span class="absolute bottom-0 right-0 w-2.5 h-2.5 bg-emerald-500 border-2 border-white dark:border-[#0A0D14] rounded-full"></span>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-serif font-bold text-lg text-slate-900 dark:text-white tracking-wide leading-none group-hover:text-brand-blue transition-colors">RATIKANTA SAHOO</span>
+          <span class="text-[11px] font-mono text-slate-500 dark:text-slate-400 mt-1">Full-Stack &amp; Web Dev</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden xl:flex items-center space-x-6 text-sm font-medium text-slate-600 dark:text-slate-300">
+        <a href="#home" class="hover:text-brand-blue dark:hover:text-brand-electric transition-colors">Home</a>
+        <a href="#about" class="hover:text-brand-blue dark:hover:text-brand-electric transition-colors">About</a>
+        <a href="#skills" class="hover:text-brand-blue dark:hover:text-brand-electric transition-colors">Skills</a>
+        <a href="#projects" class="hover:text-brand-blue dark:hover:text-brand-electric transition-colors">Projects</a>
+        <a href="#experience" class="hover:text-brand-blue dark:hover:text-brand-electric transition-colors">Experience</a>
+        <a href="#journey" class="text-brand-blue dark:text-brand-electric font-semibold transition-colors">Journey</a>
+        <a href="#education" class="hover:text-brand-blue dark:hover:text-brand-electric transition-colors">Education</a>
+        <a href="#certifications" class="hover:text-brand-blue dark:hover:text-brand-electric transition-colors">Certifications</a>
+        <a href="#contact" class="hover:text-brand-blue dark:hover:text-brand-electric transition-colors">Contact</a>
+      </nav>
+
+      <!-- Right Action Items -->
+      <div class="flex items-center space-x-3">
+        <button onclick="openModal('files-modal')" class="hidden sm:inline-flex items-center space-x-1.5 px-3 py-2 text-xs font-mono font-medium rounded-xl border border-brand-blue/30 dark:border-brand-electric/30 bg-brand-blue/10 dark:bg-brand-electric/10 text-brand-blue dark:text-brand-electric hover:bg-brand-blue/20 transition-all">
+          <span>📦 Files (HTML / CSS / JS)</span>
+        </button>
+
+        <button id="theme-toggle-btn" type="button" aria-label="Toggle Theme" class="p-2 rounded-xl border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+          <span id="sun-icon" class="text-amber-400">☀️</span>
+          <span id="moon-icon" class="hidden text-slate-700">🌙</span>
+        </button>
+
+        <button onclick="openModal('hire-modal')" class="inline-flex items-center justify-center px-4 py-2 text-xs font-semibold uppercase tracking-wider rounded-xl bg-gradient-to-r from-brand-blue to-brand-purple text-white shadow-md shadow-brand-blue/25 hover:opacity-95 hover:shadow-lg transition-all">
+          Hire Me ↗
+        </button>
+
+        <button id="mobile-menu-btn" class="xl:hidden p-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800">
+          ☰
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-drawer" class="hidden xl:hidden px-4 pt-2 pb-6 bg-white/95 dark:bg-[#0A0D14]/95 border-b border-slate-200 dark:border-slate-800">
+      <nav class="flex flex-col space-y-3 pt-2 text-sm font-medium">
+        <a href="#home" class="px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">Home</a>
+        <a href="#about" class="px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">About</a>
+        <a href="#skills" class="px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">Skills</a>
+        <a href="#projects" class="px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">Projects</a>
+        <a href="#journey" class="px-3 py-2 rounded-lg text-brand-blue bg-blue-500/10">Journey</a>
+        <a href="#education" class="px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">Education</a>
+        <a href="#certifications" class="px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">Certifications</a>
+        <a href="#contact" class="px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="relative pt-16 pb-20 lg:pt-20 lg:pb-28 bg-grid-pattern border-b border-slate-200/60 dark:border-slate-800/60 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col lg:flex-row items-center justify-between gap-12">
+        <!-- Left Content -->
+        <div class="flex-1 text-center lg:text-left">
+          <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-xs font-mono font-medium mb-6">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+            <span>Actively Seeking Internships &amp; Entry-Level Roles</span>
+          </div>
+
+          <h1 class="text-4xl sm:text-6xl font-serif font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.1] mb-5">
+            Hi, I'm <br class="hidden sm:block">
+            <span class="text-gradient">Ratikanta Sahoo</span>
+          </h1>
+
+          <div class="h-10 text-lg sm:text-2xl font-mono text-slate-700 dark:text-slate-300 font-medium mb-4 flex items-center justify-center lg:justify-start">
+            <span class="text-brand-blue dark:text-brand-electric">&gt;&nbsp;</span>
+            <span id="typing-role" class="text-slate-900 dark:text-white font-semibold">Full-Stack Developer</span>
+            <span class="typing-cursor">&nbsp;</span>
+          </div>
+
+          <p class="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto lg:mx-0 mb-6 leading-relaxed">
+            Building modern, responsive, and practical digital experiences with code. Focused on clean architecture, intuitive UI, and robust systems.
+          </p>
+
+          <div class="flex items-center justify-center lg:justify-start text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-medium mb-8 space-x-2">
+            <span>📍 Chakradharpur, Kujang, Jagatsinghpur, Odisha, India</span>
+          </div>
+
+          <!-- CTAs -->
+          <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4">
+            <a href="#projects" class="px-6 py-3.5 rounded-xl bg-brand-blue hover:bg-blue-600 text-white font-medium text-sm shadow-lg shadow-brand-blue/30 hover:-translate-y-0.5 transition-all">
+              View My Work ↓
+            </a>
+            <a href="Ratikanta_Sahoo_Resume_OnePage_Enhanced.pdf" download="Ratikanta_Sahoo_Resume_OnePage_Enhanced.pdf" class="px-6 py-3.5 rounded-xl bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-800 dark:text-white font-medium text-sm border border-slate-300 dark:border-slate-700 transition-all">
+              Download Resume 📄
+            </a>
+            <a href="#contact" class="px-6 py-3.5 rounded-xl border border-brand-blue/50 text-brand-blue dark:text-brand-electric hover:bg-brand-blue/10 font-medium text-sm transition-all">
+              Contact Me
+            </a>
+          </div>
+
+          <!-- Social Links -->
+          <div class="mt-8 pt-6 border-t border-slate-200/60 dark:border-slate-800/60 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 text-xs font-mono text-slate-500 dark:text-slate-400">
+            <span class="text-[11px] uppercase tracking-wider text-slate-400 font-semibold">Connect:</span>
+            <div class="flex items-center flex-wrap gap-2.5">
+              <a href="mailto:ratikanta741203@gmail.com" class="px-3 py-1.5 rounded-xl bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:text-brand-blue">✉️ Email</a>
+              <a href="https://github.com" target="_blank" class="px-3 py-1.5 rounded-xl bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:text-brand-purple">🐙 GitHub</a>
+              <a href="https://wa.me/919078835620" target="_blank" class="px-3 py-1.5 rounded-xl bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:text-emerald-500">💬 WhatsApp</a>
+              <a href="https://instagram.com/ratikanta_sahoo_149_a9" target="_blank" class="px-3 py-1.5 rounded-xl bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:text-brand-pink">📸 Instagram</a>
+              <a href="https://x.com/A9_Sahoo" target="_blank" class="px-3 py-1.5 rounded-xl bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:text-brand-blue">🐦 X</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Developer Portrait & JSON Card -->
+        <div class="w-full max-w-md lg:w-[420px] flex flex-col gap-6">
+          <div class="relative rounded-3xl p-1 bg-gradient-to-br from-brand-blue via-brand-purple to-brand-pink shadow-2xl glow-blue">
+            <div class="bg-white dark:bg-brand-darkCard rounded-[22px] p-5 sm:p-6 backdrop-blur-xl">
+              <div class="flex items-center space-x-4">
+                <div class="relative flex-shrink-0">
+                  <div class="w-24 h-28 sm:w-28 sm:h-32 rounded-2xl p-0.5 bg-gradient-to-tr from-brand-electric via-brand-blue to-brand-purple shadow-xl overflow-hidden">
+                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4Yk9LCkzvvREQmAi2BlNvjmt7yPUeE9V0ELcpBzrhmosuMB46Z5wi5wX9PMtkoug75vL0ErIOvYJaL0YTEMowfZ1qtQtKJrqPktvY45NweMMrvgy-TbJGa8nzSMKVGe3qAdfUU4_W921k1u_k5r6f82UJKauW3H-gNYIQ_08bMu1YlM1dlQv8kzJaSyr1Lbf2EkPUw0TA0JUsMqGNLBTV9_J8eeTal94yLiyeCTI4NHhd6wkUz_CWdODg6-DcsnA7pQ" alt="Ratikanta Sahoo Profile" class="w-full h-full object-cover rounded-[14px]">
+                  </div>
+                  <span class="absolute -bottom-1 -right-1 flex h-4 w-4">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-4 w-4 bg-emerald-500 border-2 border-white dark:border-brand-darkCard"></span>
+                  </span>
+                </div>
+                <div class="flex-1 min-w-0 text-left">
+                  <div class="inline-flex items-center space-x-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-mono font-medium bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 mb-1.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                    <span>Open for Internships</span>
+                  </div>
+                  <h3 class="text-lg font-bold font-serif text-slate-900 dark:text-white leading-snug truncate">Ratikanta Sahoo</h3>
+                  <p class="text-xs text-brand-blue dark:text-brand-electric font-mono font-semibold">Full-Stack &amp; Web Developer</p>
+                  <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-1">📍 Odisha, India</p>
+                  <div class="flex flex-wrap gap-1.5 mt-2.5">
+                    <span class="px-2 py-0.5 text-[10px] font-mono rounded bg-slate-100 dark:bg-slate-800 text-brand-blue dark:text-brand-electric font-semibold">Java</span>
+                    <span class="px-2 py-0.5 text-[10px] font-mono rounded bg-slate-100 dark:bg-slate-800 text-brand-purple font-semibold">Python</span>
+                    <span class="px-2 py-0.5 text-[10px] font-mono rounded bg-slate-100 dark:bg-slate-800 text-brand-pink font-semibold">Web</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="relative rounded-3xl p-1 bg-gradient-to-br from-brand-blue via-brand-purple to-brand-pink shadow-2xl glow-blue text-left">
+            <div class="bg-white dark:bg-brand-darkCard rounded-[22px] p-5 backdrop-blur-xl">
+              <div class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-2 mb-3">
+                <div class="flex items-center space-x-2">
+                  <div class="w-2.5 h-2.5 rounded-full bg-red-500"></div>
+                  <div class="w-2.5 h-2.5 rounded-full bg-yellow-500"></div>
+                  <div class="w-2.5 h-2.5 rounded-full bg-emerald-500"></div>
+                </div>
+                <span class="text-[11px] font-mono text-slate-400">developer-profile.json</span>
+              </div>
+              <div class="font-mono text-xs space-y-1 text-slate-600 dark:text-slate-300">
+                <p><span class="text-brand-purple font-semibold">const</span> <span class="text-brand-blue font-bold">developer</span> = {</p>
+                <p class="pl-4">name: <span class="text-emerald-500">"Ratikanta Sahoo"</span>,</p>
+                <p class="pl-4">role: <span class="text-emerald-500">"Aspiring Full-Stack Dev"</span>,</p>
+                <p class="pl-4">leadership: <span class="text-emerald-500">"SIH Team Lead"</span>,</p>
+                <p class="pl-4">stack: [<span class="text-amber-500">"Java"</span>, <span class="text-amber-500">"Python"</span>, <span class="text-amber-500">"JS"</span>, <span class="text-amber-500">"MySQL"</span>]</p>
+                <p>};</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Me Section -->
+  <section id="about" class="py-20 bg-white dark:bg-[#0A0D14]/90 border-b border-slate-200/60 dark:border-slate-800/60 text-left">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mb-12">
+        <h2 class="text-xs font-mono uppercase tracking-widest text-brand-blue dark:text-brand-electric mb-3">02 // DISCOVER</h2>
+        <h3 class="text-3xl sm:text-4xl font-serif font-bold text-slate-900 dark:text-white">About Me</h3>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        <div class="lg:col-span-7 space-y-6 text-base text-slate-600 dark:text-slate-300 leading-relaxed">
+          <p class="p-5 rounded-2xl bg-slate-50 dark:bg-brand-darkCard border border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-200 font-medium border-l-4 border-l-brand-blue">
+            "I am a B.Tech student and aspiring Full-Stack Developer with a strong interest in building modern web applications and solving real-world problems through technology."
+          </p>
+          <p>
+            I have hands-on experience with Java, Python, JavaScript, HTML, CSS, MySQL, and modern development workflows. My journey revolves around taking ideas from whiteboard architectural concepts to functional, user-friendly digital tools.
+          </p>
+          <p>
+            I thrive in collaborative high-energy environments like hackathons, taking ownership as a team leader to analyze community problems—such as AI-driven disaster response and threat detection platforms.
+          </p>
+          <div class="pt-4 grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <div class="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/60 text-center">
+              <span class="block text-xl font-bold text-slate-900 dark:text-white">2nd Year</span>
+              <span class="text-xs text-slate-500 font-mono">B.Tech Student</span>
+            </div>
+            <div class="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/60 text-center">
+              <span class="block text-xl font-bold text-brand-blue">Team Lead</span>
+              <span class="text-xs text-slate-500 font-mono">Hackathons</span>
+            </div>
+            <div class="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/60 text-center">
+              <span class="block text-xl font-bold text-brand-purple">7+</span>
+              <span class="text-xs text-slate-500 font-mono">Active Projects</span>
+            </div>
+            <div class="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/60 text-center">
+              <span class="block text-xl font-bold text-brand-pink">Fresher</span>
+              <span class="text-xs text-slate-500 font-mono">Ready to Join</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 space-y-4">
+          <h4 class="text-sm font-mono uppercase tracking-wider text-slate-400 mb-2">What I Do</h4>
+          <div class="p-5 rounded-2xl bg-white dark:bg-brand-darkCard border border-slate-200 dark:border-slate-800 shadow-sm">
+            <div class="flex items-center space-x-3 mb-1.5"><span class="text-2xl">🌐</span><h5 class="font-bold text-slate-900 dark:text-white text-base">Web Development</h5></div>
+            <p class="text-sm text-slate-600 dark:text-slate-400">Building responsive, accessible, and interactive frontend interfaces and web tools.</p>
+          </div>
+          <div class="p-5 rounded-2xl bg-white dark:bg-brand-darkCard border border-slate-200 dark:border-slate-800 shadow-sm">
+            <div class="flex items-center space-x-3 mb-1.5"><span class="text-2xl">💻</span><h5 class="font-bold text-slate-900 dark:text-white text-base">Software Engineering</h5></div>
+            <p class="text-sm text-slate-600 dark:text-slate-400">Writing clean, structured programs with Java, Python, and SQL database backings.</p>
+          </div>
+          <div class="p-5 rounded-2xl bg-white dark:bg-brand-darkCard border border-slate-200 dark:border-slate-800 shadow-sm">
+            <div class="flex items-center space-x-3 mb-1.5"><span class="text-2xl">🤖</span><h5 class="font-bold text-slate-900 dark:text-white text-base">AI &amp; Innovation</h5></div>
+            <p class="text-sm text-slate-600 dark:text-slate-400">Integrating machine learning workflows, conversational agents, and disaster triage systems.</p>
+          </div>
+          <div class="p-5 rounded-2xl bg-white dark:bg-brand-darkCard border border-slate-200 dark:border-slate-800 shadow-sm">
+            <div class="flex items-center space-x-3 mb-1.5"><span class="text-2xl">🚀</span><h5 class="font-bold text-slate-900 dark:text-white text-base">Problem Solving</h5></div>
+            <p class="text-sm text-slate-600 dark:text-slate-400">Transforming real-world public challenges into tangible prototypes under time constraints.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="py-20 bg-slate-50 dark:bg-[#0E131F] border-b border-slate-200/60 dark:border-slate-800/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <h2 class="text-xs font-mono uppercase tracking-widest text-brand-blue dark:text-brand-electric mb-3">03 // EXPERTISE</h2>
+        <h3 class="text-3xl sm:text-4xl font-serif font-bold text-slate-900 dark:text-white mb-3">Categorized Skills &amp; Stack</h3>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-left">
+        <div class="rounded-2xl p-6 bg-white dark:bg-brand-darkCard border border-slate-200 dark:border-slate-800 shadow-sm">
+          <div class="w-10 h-10 rounded-xl bg-brand-blue/10 text-brand-blue flex items-center justify-center text-xl mb-4">💻</div>
+          <h4 class="font-bold text-lg text-slate-900 dark:text-white mb-1">Development</h4>
+          <p class="text-xs text-slate-500 mb-4 font-mono">Languages &amp; DB</p>
+          <div class="flex flex-wrap gap-1.5 text-xs font-mono">
+            <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800">HTML5</span>
+            <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800">CSS3</span>
+            <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-brand-blue font-semibold">JavaScript</span>
+            <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-brand-electric font-semibold">Python</span>
+            <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-amber-500 font-semibold">Java</span>
+            <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800">MySQL</span>
+          </div>
+        </div>
+
+        <div class="rounded-2xl p-6 bg-white dark:bg-brand-darkCard border border-slate-200 dark:border-slate-800 shadow-sm">
+          <div class="w-10 h-10 rounded-xl bg-brand-purple/10 text-brand-purple flex items-center justify-center text-xl mb-4">🧰</div>
+          <h4 class="font-bold text-lg text-slate-900 dark:text-white mb-1">Productivity</h4>
+          <p class="text-xs text-slate-500 mb-4 font-mono">Office &amp; Execution</p>
+          <div class="flex flex-wrap gap-1.5 text-xs font-mono">
+            <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800">MS Word</span>
+            <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800">MS Excel</span>
+            <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800">PowerPoint</span>
+            <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800">Fast Typing</span>
+          </div>
+        </div>
+
+        <div class="rounded-2xl p-6 bg-white dark:bg-brand-darkCard border border-slate-200 dark:border-slate-800 shadow-sm">
+          <div class="w-10 h-10 rounded-xl bg-brand-pink/10 text-brand-pink flex items-center justify-center text-xl mb-4">🎨</div>
+          <h4 class="font-bold text-lg text-slate-900 dark:text-white mb-1">Creative &amp; Design</h4>
+          <p class="text-xs text-slate-500 mb-4 font-mono">Visuals &amp; Writing</p>
+          <div class="flex flex-wrap gap-1.5 text-xs font-mono">
+            <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800">Photo Editing</span>
+            <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800">Poster Making</span>
+            <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800">Report Writing</span>
+            <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800">Script Writing</span>
+          </div>
+        </div>
+
+        <div class="rounded-2xl p-6 bg-white dark:bg-brand-darkCard border border-slate-200 dark:border-slate-800 shadow-sm">
+          <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-500 flex items-center justify-center text-xl mb-4">📢</div>
+          <h4 class="font-bold text-lg text-slate-900 dark:text-white mb-1">Professional &amp; Soft</h4>
+          <p class="text-xs text-slate-500 mb-4 font-mono">Leadership &amp; Growth</p>
+          <div class="flex flex-wrap gap-1.5 text-xs font-mono">
+            <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800">Team Collaboration</span>
+            <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800">Problem Solving</span>
+            <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800">Communication</span>
+            <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800">Pitching</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Projects Section -->
+  <section id="projects" class="py-20 bg-white dark:bg-[#0A0D14] border-b border-slate-200/60 dark:border-slate-800/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mb-12 text-left">
+        <h2 class="text-xs font-mono uppercase tracking-widest text-brand-blue dark:text-brand-electric mb-3">04 // PORTFOLIO WORK</h2>
+        <h3 class="text-3xl sm:text-4xl font-serif font-bold text-slate-900 dark:text-white">Featured Projects</h3>
+      </div>
+
+      <div class="space-y-12 md:space-y-16">
+        <!-- Project 1: Odisha Disaster Guardian -->
+        <div class="animate-float-1 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center rounded-3xl p-1 bg-gradient-to-r from-blue-500/30 via-indigo-500/20 to-transparent shadow-2xl shadow-blue-500/10 hover:border-cyan-400/60 transition-all duration-300">
+          <div class="lg:col-span-12 rounded-[22px] bg-white/90 dark:bg-brand-darkCard/90 backdrop-blur-xl border border-blue-500/30 p-6 sm:p-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center text-left">
+              <div class="lg:col-span-7 flex flex-col justify-between space-y-4">
+                <div>
+                  <div class="flex items-center gap-2 mb-3">
+                    <span class="px-2.5 py-1 rounded-full text-xs font-mono font-bold bg-brand-blue/15 text-brand-blue border border-brand-blue/30">AI • GIS</span>
+                    <span class="text-[11px] font-mono text-cyan-400 font-semibold">Featured Project #01</span>
+                  </div>
+                  <h4 class="font-serif font-bold text-2xl sm:text-3xl text-slate-900 dark:text-white mb-3">🌊 Odisha Disaster Guardian</h4>
+                  <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                    An AI-powered disaster-management platform designed to assist citizens, volunteers, and emergency teams during floods and cyclones with real-time situational response.
+                  </p>
+                </div>
+                <div class="flex flex-wrap gap-2 pt-2 text-xs font-mono">
+                  <span class="px-2.5 py-1 rounded-md bg-blue-500/10 text-blue-500 dark:text-blue-400 border border-blue-500/20">AI</span>
+                  <span class="px-2.5 py-1 rounded-md bg-blue-500/10 text-blue-500 dark:text-blue-400 border border-blue-500/20">Python</span>
+                  <span class="px-2.5 py-1 rounded-md bg-blue-500/10 text-blue-500 dark:text-blue-400 border border-blue-500/20">GIS</span>
+                  <span class="px-2.5 py-1 rounded-md bg-blue-500/10 text-blue-500 dark:text-blue-400 border border-blue-500/20">Disaster Response</span>
+                </div>
+                <div class="flex items-center justify-between pt-4 border-t border-slate-200 dark:border-slate-800 text-xs font-mono">
+                  <span class="text-slate-500 dark:text-slate-400">Hackathon Flagship</span>
+                  <button onclick="triggerDisasterSos()" class="text-brand-blue dark:text-brand-electric font-semibold hover:underline">Launch Simulation →</button>
+                </div>
+              </div>
+              <div class="lg:col-span-5 flex items-center justify-center p-4 rounded-2xl bg-slate-950/80 border border-blue-500/20 shadow-inner h-56 sm:h-64 overflow-hidden group">
+                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKTRYEOXl9EBQJN-9eunwmHAMDsBKhaJX88Cg9nPxhnHWo9ZR_5iSO7hRuhtd1dx0M9I4DztHIBnrRXwQhrGC3na01BUZIyCh19SCXF_HCu2MKfCyX2UUIuGEvaFVZtJSfKdLN1jb6cP5r09jK2i_TIf3Z9tTYxZRP9tVwBWuXLD4SoX7SsMc9W7ZpZjbhgVq2AArFDG02Ttnehe1v3wpDo6Sd98RJYfYKYjhzFfDljkT-702LoaOC" alt="Odisha Disaster Guardian" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-500">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2: DEFEND AI -->
+        <div class="animate-float-2 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center rounded-3xl p-1 bg-gradient-to-r from-transparent via-cyan-500/20 to-brand-electric/30 shadow-2xl shadow-cyan-500/10 hover:border-brand-electric/60 transition-all duration-300">
+          <div class="lg:col-span-12 rounded-[22px] bg-white/90 dark:bg-brand-darkCard/90 backdrop-blur-xl border border-cyan-400/30 p-6 sm:p-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center text-left">
+              <div class="lg:col-span-5 order-2 lg:order-1 flex items-center justify-center p-4 rounded-2xl bg-slate-950/90 border border-cyan-500/20 shadow-inner h-56 sm:h-64 overflow-hidden group">
+                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1vKfGcpZqK3MoDrLefWbJHjkpeOOAaCEb7ACcXP4t8DesbeU4sqjZL7t9-39Ovku8vyR3RXIajRKWRCZ8kCjuYH1ynD2zcs5q1grkEipF0C1EzRgQVEPuCw0bun1oL9JjKye7Bi51N6i5quk__-4cV9CWzQgnPjIaS_gXI6oIHL0boW1da1PYuvHIMdV4mdPvV1tsool4kt9p_AIfE-G3cPh3Qz86m7wxglHfbh_RauAJPUXDge5x" alt="DEFEND AI Threat Detection" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-500">
+              </div>
+              <div class="lg:col-span-7 order-1 lg:order-2 flex flex-col justify-between space-y-4">
+                <div>
+                  <div class="flex items-center gap-2 mb-3">
+                    <span class="px-2.5 py-1 rounded-full text-xs font-mono font-bold bg-brand-electric/15 text-brand-electric border border-brand-electric/30">Cybersecurity</span>
+                    <span class="text-[11px] font-mono text-cyan-400 font-semibold">Featured Project #02</span>
+                  </div>
+                  <h4 class="font-serif font-bold text-2xl sm:text-3xl text-slate-900 dark:text-white mb-3">🛡️ DEFEND AI</h4>
+                  <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                    AI-based threat detection and cybersecurity intelligence platform to detect and neutralize cyber attacks, breach attempts, and suspicious network anomalies.
+                  </p>
+                </div>
+                <div class="flex flex-wrap gap-2 pt-2 text-xs font-mono">
+                  <span class="px-2.5 py-1 rounded-md bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">AI</span>
+                  <span class="px-2.5 py-1 rounded-md bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">Python</span>
+                  <span class="px-2.5 py-1 rounded-md bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">ML</span>
+                  <span class="px-2.5 py-1 rounded-md bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">Intrusion Detection</span>
+                </div>
+                <div class="flex items-center justify-between pt-4 border-t border-slate-200 dark:border-slate-800 text-xs font-mono">
+                  <span class="text-slate-500 dark:text-slate-400">Threat Intelligence</span>
+                  <a href="https://github.com" target="_blank" class="text-cyan-400 font-semibold hover:underline">GitHub Repository →</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3: AI Girl Assistant -->
+        <div class="animate-float-3 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center rounded-3xl p-1 bg-gradient-to-r from-brand-purple/30 via-purple-500/20 to-transparent shadow-2xl shadow-purple-500/10 hover:border-purple-300 transition-all duration-300">
+          <div class="lg:col-span-12 rounded-[22px] bg-white/90 dark:bg-brand-darkCard/90 backdrop-blur-xl border border-purple-500/30 p-6 sm:p-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center text-left">
+              <div class="lg:col-span-7 flex flex-col justify-between space-y-4">
+                <div>
+                  <div class="flex items-center gap-2 mb-3">
+                    <span class="px-2.5 py-1 rounded-full text-xs font-mono font-bold bg-brand-purple/15 text-brand-purple border border-brand-purple/30">Voice AI</span>
+                    <span class="text-[11px] font-mono text-purple-300 font-semibold">Featured Project #03</span>
+                  </div>
+                  <h4 class="font-serif font-bold text-2xl sm:text-3xl text-slate-900 dark:text-white mb-3">🤖 AI Girl Assistant</h4>
+                  <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                    Personal AI assistant web application featuring intuitive natural voice interaction, real-time speech synthesis, persistent conversational memory, and responsive UI.
+                  </p>
+                </div>
+                <div class="flex flex-wrap gap-2 pt-2 text-xs font-mono">
+                  <span class="px-2.5 py-1 rounded-md bg-purple-500/10 text-purple-400 border border-purple-500/20">Python</span>
+                  <span class="px-2.5 py-1 rounded-md bg-purple-500/10 text-purple-400 border border-purple-500/20">Flask</span>
+                  <span class="px-2.5 py-1 rounded-md bg-purple-500/10 text-purple-400 border border-purple-500/20">JavaScript</span>
+                  <span class="px-2.5 py-1 rounded-md bg-purple-500/10 text-purple-400 border border-purple-500/20">Voice Synthesis</span>
+                </div>
+                <div class="flex items-center justify-between pt-4 border-t border-slate-200 dark:border-slate-800 text-xs font-mono">
+                  <span class="text-slate-500 dark:text-slate-400">Conversational Agent</span>
+                  <a href="https://github.com" target="_blank" class="text-brand-purple font-semibold hover:underline">GitHub Repository →</a>
+                </div>
+              </div>
+              <div class="lg:col-span-5 flex items-center justify-center p-4 rounded-2xl bg-slate-950/80 border border-purple-500/20 shadow-inner h-56 sm:h-64 overflow-hidden group">
+                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqSWCN8mmmgkEwmeHvcZzh4s31Xd1yi0N5BfRtKYwBr8b59XaiDA3Uzjo5waaQz2ht3__oRadmqbluKmZhiNX4Bb5L1ZfZe7Hbcdb1dJjDqN02_qxRK6P0qLPy9pfD2swDOrBFxJTYERlUnkKuTSeAbbEqqRsDX2fA6K9GLWJgaEsPbjHPS-vpuVZ6dAu5zyPJbTrGSbeNLjUA33X5xRjVky5ZmX_e0WQraFI3hFsW0kRzROqQAw0mXsSdID97AxGZGw" alt="AI Girl Assistant" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-500">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 4: A9 Shop Platform -->
+        <div class="animate-float-4 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center rounded-3xl p-1 bg-gradient-to-r from-transparent via-emerald-500/20 to-emerald-600/30 shadow-2xl shadow-emerald-500/10 hover:border-emerald-400/60 transition-all duration-300">
+          <div class="lg:col-span-12 rounded-[22px] bg-white/90 dark:bg-brand-darkCard/90 backdrop-blur-xl border border-emerald-500/30 p-6 sm:p-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center text-left">
+              <div class="lg:col-span-5 order-2 lg:order-1 flex items-center justify-center p-4 rounded-2xl bg-slate-950/80 border border-emerald-500/20 shadow-inner h-56 sm:h-64 overflow-hidden group">
+                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgx6uZcgGesX40xp07JKU1qTFVE6A0SSN4h9WxA1FGP4O1IkITComXDrbghmyWds7WUM6tKXL-5AlLuxgCVzF8IgD8IfbFztw1gSNC1dHSfD54ecnQ0fDS848pjmBgnwT7zP0Ch5oyKQnvFAHVpBk-zIDi_TPd6inssBkZ8fSlntQ-6WMKTGqI1Yzy5_3YgF44Si6azqxEqyE5ZCIS-GU2B1L9t7zaLLIaSz4kung8aHdQHzoB_kWYqyb8NreoR9iKtQ" alt="A9 Shop Platform" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-500">
+              </div>
+              <div class="lg:col-span-7 order-1 lg:order-2 flex flex-col justify-between space-y-4">
+                <div>
+                  <div class="flex items-center gap-2 mb-3">
+                    <span class="px-2.5 py-1 rounded-full text-xs font-mono font-bold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">E-Commerce</span>
+                    <span class="text-[11px] font-mono text-emerald-300 font-semibold">Featured Project #04</span>
+                  </div>
+                  <h4 class="font-serif font-bold text-2xl sm:text-3xl text-slate-900 dark:text-white mb-3">🛍️ A9 Shop Platform</h4>
+                  <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                    Hyper-local store platform with responsive product catalog, dynamic cart management, instant checkout, and live inventory indicators tailored for local merchants.
+                  </p>
+                </div>
+                <div class="flex flex-wrap gap-2 pt-2 text-xs font-mono">
+                  <span class="px-2.5 py-1 rounded-md bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">HTML5</span>
+                  <span class="px-2.5 py-1 rounded-md bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">CSS3</span>
+                  <span class="px-2.5 py-1 rounded-md bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">JavaScript</span>
+                  <span class="px-2.5 py-1 rounded-md bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Local Commerce</span>
+                </div>
+                <div class="flex items-center justify-between pt-4 border-t border-slate-200 dark:border-slate-800 text-xs font-mono">
+                  <span class="text-slate-500 dark:text-slate-400">Local Retail Tech</span>
+                  <a href="https://github.com" target="_blank" class="text-emerald-400 font-semibold hover:underline">GitHub Repository →</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 5: A9 Restaurant -->
+        <div class="animate-float-1 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center rounded-3xl p-1 bg-gradient-to-r from-amber-500/30 via-orange-500/20 to-transparent shadow-2xl shadow-amber-500/10 hover:border-amber-400/60 transition-all duration-300">
+          <div class="lg:col-span-12 rounded-[22px] bg-white/90 dark:bg-brand-darkCard/90 backdrop-blur-xl border border-amber-500/30 p-6 sm:p-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center text-left">
+              <div class="lg:col-span-7 flex flex-col justify-between space-y-4">
+                <div>
+                  <div class="flex items-center gap-2 mb-3">
+                    <span class="px-2.5 py-1 rounded-full text-xs font-mono font-bold bg-amber-500/15 text-amber-500 border border-amber-500/30">Hospitality</span>
+                    <span class="text-[11px] font-mono text-amber-400 font-semibold">Featured Project #05</span>
+                  </div>
+                  <h4 class="font-serif font-bold text-2xl sm:text-3xl text-slate-900 dark:text-white mb-3">🍽️ A9 Restaurant Concept</h4>
+                  <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                    Modern restaurant digital portal featuring interactive visual menus, category filtering, chef specials, table reservations, and backend order management.
+                  </p>
+                </div>
+                <div class="flex flex-wrap gap-2 pt-2 text-xs font-mono">
+                  <span class="px-2.5 py-1 rounded-md bg-amber-500/10 text-amber-500 border border-amber-500/20">HTML</span>
+                  <span class="px-2.5 py-1 rounded-md bg-amber-500/10 text-amber-500 border border-amber-500/20">CSS</span>
+                  <span class="px-2.5 py-1 rounded-md bg-amber-500/10 text-amber-500 border border-amber-500/20">MySQL</span>
+                  <span class="px-2.5 py-1 rounded-md bg-amber-500/10 text-amber-500 border border-amber-500/20">Reservations</span>
+                </div>
+                <div class="flex items-center justify-between pt-4 border-t border-slate-200 dark:border-slate-800 text-xs font-mono">
+                  <span class="text-slate-500 dark:text-slate-400">Dining &amp; Hospitality</span>
+                  <a href="https://github.com" target="_blank" class="text-amber-500 font-semibold hover:underline">GitHub Repository →</a>
+                </div>
+              </div>
+              <div class="lg:col-span-5 flex items-center justify-center p-4 rounded-2xl bg-slate-950/80 border border-amber-500/20 shadow-inner h-56 sm:h-64 overflow-hidden group">
+                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2cGiCjBWVqGoIYXRsKB2OgcdqxLEt4hNZ-XivkqtFNig-ZFwTLwe0rU1aVL2R3VL2pNmCtKNo4iuw4KQPKMs6CyepqIAHVzsoetCd8H5AHYDVZSWUaaKc9NEPtshAG-IE0itZKhH_WagMuSVXCyQ0ohtZZsKMPzNIe7NSEryERefmWT4vJGyLzxRNwxpbAlTGWU6-KXlkYAkCZh26SGVceQ7_lu6Rmr5ni6VZ1mqi8s49q72eDWZGVwqIq3GxhdfY5A" alt="A9 Restaurant Concept" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-500">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 6: EATM Smart School -->
+        <div class="animate-float-2 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center rounded-3xl p-1 bg-gradient-to-r from-transparent via-lime-500/20 to-lime-600/30 shadow-2xl shadow-lime-500/10 hover:border-lime-400/60 transition-all duration-300">
+          <div class="lg:col-span-12 rounded-[22px] bg-white/90 dark:bg-brand-darkCard/90 backdrop-blur-xl border border-lime-500/30 p-6 sm:p-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center text-left">
+              <div class="lg:col-span-5 order-2 lg:order-1 flex items-center justify-center p-4 rounded-2xl bg-slate-950/80 border border-lime-500/20 shadow-inner h-56 sm:h-64 overflow-hidden group">
+                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBH77CcpVbuGx2DoT-puJXXpu-aK_Z9zRc89YRQ4XfrAAmYXk-coj_fUOJUV6hlQ5TW52Dwyaz1pVzYNUiQPZcrYixq9C71TspJ4mEyC6rnj5bEkgf523HsElilt9TbwHL4x43CRnzOkb1w9mdJCNnOBlnj1WX_zvXg7h-_OIHGlDT_cj5IFFml0PcAQuJcres9se9LJ8yjiuZ6zfyYHC_2xFI297tEr-o8w5cyYYezzsL6p6RUYOzy2uzPKe7pbgE0Vg" alt="EATM Smart School" class="max-h-36 max-w-full object-contain group-hover:scale-105 transition-transform duration-500">
+              </div>
+              <div class="lg:col-span-7 order-1 lg:order-2 flex flex-col justify-between space-y-4">
+                <div>
+                  <div class="flex items-center gap-2 mb-3">
+                    <span class="px-2.5 py-1 rounded-full text-xs font-mono font-bold bg-lime-600/15 text-lime-500 border border-lime-500/30">EdTech Portal</span>
+                    <span class="text-[11px] font-mono text-lime-400 font-semibold">Featured Project #06</span>
+                  </div>
+                  <h4 class="font-serif font-bold text-2xl sm:text-3xl text-slate-900 dark:text-white mb-3">🏫 EATM Smart School</h4>
+                  <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                    Academic management platform unifying student dashboards, notice dissemination, daily attendance tracking, grade tracking, and institutional timetables.
+                  </p>
+                </div>
+                <div class="flex flex-wrap gap-2 pt-2 text-xs font-mono">
+                  <span class="px-2.5 py-1 rounded-md bg-lime-500/10 text-lime-500 border border-lime-500/20">Web</span>
+                  <span class="px-2.5 py-1 rounded-md bg-lime-500/10 text-lime-500 border border-lime-500/20">Java</span>
+                  <span class="px-2.5 py-1 rounded-md bg-lime-500/10 text-lime-500 border border-lime-500/20">MySQL</span>
+                  <span class="px-2.5 py-1 rounded-md bg-lime-500/10 text-lime-500 border border-lime-500/20">EdTech</span>
+                </div>
+                <div class="flex items-center justify-between pt-4 border-t border-slate-200 dark:border-slate-800 text-xs font-mono">
+                  <span class="text-slate-500 dark:text-slate-400">Campus Systems</span>
+                  <a href="https://github.com" target="_blank" class="text-lime-500 font-semibold hover:underline">GitHub Repository →</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 7: RUDRAM 2.0 -->
+        <div class="animate-float-3 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center rounded-3xl p-1 bg-gradient-to-r from-brand-pink/30 via-red-500/20 to-transparent shadow-2xl shadow-pink-500/10 hover:border-pink-300 transition-all duration-300">
+          <div class="lg:col-span-12 rounded-[22px] bg-white/90 dark:bg-brand-darkCard/90 backdrop-blur-xl border border-pink-500/30 p-6 sm:p-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center text-left">
+              <div class="lg:col-span-7 flex flex-col justify-between space-y-4">
+                <div>
+                  <div class="flex items-center gap-2 mb-3">
+                    <span class="px-2.5 py-1 rounded-full text-xs font-mono font-bold bg-pink-500/15 text-pink-400 border border-pink-500/30">🚨 Emergency Platform</span>
+                    <span class="text-[11px] font-mono text-pink-300 font-semibold">Featured Project #07</span>
+                  </div>
+                  <h4 class="font-serif font-bold text-2xl sm:text-3xl text-slate-900 dark:text-white mb-3">🚨 RUDRAM 2.0</h4>
+                  <div class="text-xs font-mono text-brand-electric font-semibold mb-3">AI • Python • GIS • Web • Real-Time Systems</div>
+                  <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                    Advanced disaster-management and emergency-response platform designed to support flood, cyclone, heatwave, and other disaster situations through real-time monitoring, rescue coordination, citizen assistance, and emergency resource management.
+                  </p>
+                </div>
+                <div class="flex flex-wrap gap-2 text-xs font-mono">
+                  <span class="px-2.5 py-1 rounded-md bg-pink-500/15 text-pink-400 border border-pink-500/20">SOS</span>
+                  <span class="px-2.5 py-1 rounded-md bg-blue-500/15 text-blue-400 border border-blue-500/20">Live Location</span>
+                  <span class="px-2.5 py-1 rounded-md bg-purple-500/15 text-purple-400 border border-purple-500/20">Rescue Coordination</span>
+                  <span class="px-2.5 py-1 rounded-md bg-emerald-500/15 text-emerald-400 border border-emerald-500/20">Shelters</span>
+                </div>
+                <div class="flex items-center justify-between pt-4 border-t border-slate-200 dark:border-slate-800 text-xs font-mono">
+                  <span class="text-slate-500 dark:text-slate-400">SIH Initiative</span>
+                  <a href="https://github.com" target="_blank" class="text-pink-400 font-semibold hover:underline">GitHub Repository →</a>
+                </div>
+              </div>
+              <div class="lg:col-span-5 p-6 rounded-2xl bg-slate-950/90 border border-pink-500/30 shadow-inner flex flex-col justify-between space-y-4 h-64 font-mono">
+                <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+                  <div class="flex items-center space-x-2">
+                    <span class="w-2.5 h-2.5 rounded-full bg-pink-500 animate-ping"></span>
+                    <span class="text-xs font-bold text-pink-400">RUDRAM TELEMETRY NODE</span>
+                  </div>
+                  <span class="text-[10px] text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/30">LIVE SYNC</span>
+                </div>
+                <div class="space-y-2 text-xs text-slate-300">
+                  <div class="flex justify-between items-center bg-slate-900/80 px-3 py-1.5 rounded">
+                    <span class="text-slate-400">Emergency Feed:</span>
+                    <span class="text-pink-300 font-semibold">Active Flood / Cyclone Alert</span>
+                  </div>
+                  <div class="flex justify-between items-center bg-slate-900/80 px-3 py-1.5 rounded">
+                    <span class="text-slate-400">GIS Dispatch:</span>
+                    <span class="text-brand-electric font-semibold">Spatial Geo-Fencing</span>
+                  </div>
+                </div>
+                <div class="text-[11px] text-slate-400 border-t border-slate-800 pt-2 flex items-center justify-between">
+                  <span>Node: RUDRAM-EAST-01</span>
+                  <span class="text-pink-400 font-bold">Real-Time Grid</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Journey Timeline Section -->
+  <section id="journey" class="py-24 lg:py-32 bg-slate-50/50 dark:bg-[#0A0D14] border-b border-slate-200/60 dark:border-slate-800/60 relative overflow-hidden text-left">
+    <div class="absolute inset-0 bg-grid-pattern opacity-60 pointer-events-none"></div>
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="text-center max-w-2xl mx-auto mb-20">
+        <h2 class="text-xs font-mono uppercase tracking-widest text-brand-blue dark:text-brand-electric mb-3">// MILESTONES &amp; GROWTH</h2>
+        <h3 class="text-3xl sm:text-5xl font-serif font-bold text-slate-900 dark:text-white tracking-tight">My Academic &amp; Developer Journey</h3>
+        <p class="text-slate-600 dark:text-slate-400 text-sm sm:text-base mt-3">Chronological path from foundational academics to leading hackathon prototypes and software engineering aspirations.</p>
+      </div>
+
+      <div class="relative">
+        <!-- Central Glowing Line -->
+        <div class="absolute top-6 bottom-6 left-6 md:left-1/2 md:-translate-x-1/2 w-1 md:w-1.5 bg-gradient-to-b from-blue-500 via-purple-500 to-pink-500 rounded-full shadow-[0_0_18px_rgba(59,130,246,0.65)] z-0"></div>
+
+        <div class="space-y-12 md:space-y-20 relative z-10">
+          <!-- 1st Item (2023 | 10th Completed) -> RIGHT SIDE -->
+          <div class="relative flex flex-col md:flex-row md:items-center">
+            <div class="absolute left-6 md:left-1/2 -translate-x-1/2 flex items-center justify-center w-12 h-12 rounded-full bg-white dark:bg-slate-900 border-2 border-blue-500 dark:border-blue-400 shadow-[0_0_20px_rgba(59,130,246,0.6)] z-20">
+              <span class="w-4 h-4 rounded-full bg-blue-500 animate-pulse"></span>
+            </div>
+            <div class="hidden md:block md:w-1/2 md:pr-14 text-right">
+              <span class="text-xs font-mono text-slate-400 dark:text-slate-500 tracking-wider">FOUNDATION • 2023</span>
+            </div>
+            <div class="hidden md:block absolute left-1/2 w-14 h-[2px] bg-gradient-to-r from-blue-500 to-blue-400/40 z-10"></div>
+            <div class="pl-16 md:pl-14 md:w-1/2">
+              <div class="animate-float-1 backdrop-blur-xl bg-white/90 dark:bg-slate-900/85 border border-blue-500/30 rounded-2xl p-6 sm:p-7 shadow-2xl shadow-blue-500/10 hover:border-cyan-400/60 transition-all group">
+                <div class="flex items-center justify-between gap-3 mb-3">
+                  <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono font-bold bg-blue-500/15 text-blue-600 dark:text-blue-400 border border-blue-500/30">2023</span>
+                  <span class="text-[11px] font-mono text-slate-500 dark:text-slate-400">Matriculation</span>
+                </div>
+                <h4 class="text-xl font-bold text-slate-900 dark:text-white group-hover:text-brand-blue dark:group-hover:text-cyan-300 transition-colors">10th Standard Completed</h4>
+                <p class="text-sm text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
+                  A.B. Higher Secondary School, Basudevpur, Bhadrak • <strong class="text-brand-blue dark:text-blue-400 font-semibold">67.84%</strong> (407/600)
+                </p>
+                <div class="mt-4 pt-3.5 border-t border-slate-200 dark:border-slate-800/80 flex items-center justify-between text-xs font-mono text-slate-500 dark:text-slate-400">
+                  <span>Basudevpur, Bhadrak</span>
+                  <span class="text-brand-blue dark:text-blue-400 font-medium">Schooling Base</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2nd Item (2025 | 12th Completed & B.Tech Start) -> LEFT SIDE -->
+          <div class="relative flex flex-col md:flex-row md:items-center">
+            <div class="absolute left-6 md:left-1/2 -translate-x-1/2 flex items-center justify-center w-12 h-12 rounded-full bg-white dark:bg-slate-900 border-2 border-indigo-500 dark:border-indigo-400 shadow-[0_0_20px_rgba(99,102,241,0.6)] z-20">
+              <span class="w-4 h-4 rounded-full bg-indigo-500 animate-ping"></span>
+            </div>
+            <div class="pl-16 md:pl-0 md:pr-14 md:w-1/2 order-2 md:order-1">
+              <div class="animate-float-2 backdrop-blur-xl bg-white/90 dark:bg-slate-900/85 border border-indigo-500/30 rounded-2xl p-6 sm:p-7 shadow-2xl shadow-indigo-500/10 hover:border-cyan-400/60 transition-all group">
+                <div class="flex items-center justify-between gap-3 mb-3">
+                  <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono font-bold bg-indigo-500/15 text-indigo-600 dark:text-indigo-400 border border-indigo-500/30">2025</span>
+                  <span class="text-[11px] font-mono text-emerald-600 dark:text-emerald-400 font-medium">Higher Secondary Science</span>
+                </div>
+                <h4 class="text-xl font-bold text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-cyan-300 transition-colors">12th Higher Secondary (Science) &amp; Started B.Tech</h4>
+                <p class="text-sm text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
+                  Sri Aurobindo Science College, Cuttack • <strong class="text-brand-blue dark:text-cyan-300 font-semibold">77.84%</strong> (467/600)
+                </p>
+                <div class="mt-4 pt-3.5 border-t border-slate-200 dark:border-slate-800/80 flex items-center justify-between text-xs font-mono text-slate-500 dark:text-slate-400">
+                  <span>Cuttack → Bhubaneswar</span>
+                  <span class="text-indigo-600 dark:text-indigo-400 font-medium">B.Tech Transition</span>
+                </div>
+              </div>
+            </div>
+            <div class="hidden md:block absolute right-1/2 w-14 h-[2px] bg-gradient-to-l from-indigo-500 to-indigo-400/40 z-10"></div>
+            <div class="hidden md:block md:w-1/2 md:pl-14 text-left order-1 md:order-2">
+              <span class="text-xs font-mono text-slate-400 dark:text-slate-500 tracking-wider">COLLEGE ENTRY • 2025</span>
+            </div>
+          </div>
+
+          <!-- 3rd Item (2026 Present | SIH Team Leader) -> RIGHT SIDE -->
+          <div class="relative flex flex-col md:flex-row md:items-center">
+            <div class="absolute left-6 md:left-1/2 -translate-x-1/2 flex items-center justify-center w-12 h-12 rounded-full bg-white dark:bg-slate-900 border-2 border-purple-500 dark:border-purple-400 shadow-[0_0_20px_rgba(168,85,247,0.6)] z-20">
+              <span class="w-4 h-4 rounded-full bg-purple-500 animate-pulse"></span>
+            </div>
+            <div class="hidden md:block md:w-1/2 md:pr-14 text-right">
+              <span class="text-xs font-mono text-slate-400 dark:text-slate-500 tracking-wider">ACTIVE INITIATIVE • CURRENT</span>
+            </div>
+            <div class="hidden md:block absolute left-1/2 w-14 h-[2px] bg-gradient-to-r from-purple-500 to-purple-400/40 z-10"></div>
+            <div class="pl-16 md:pl-14 md:w-1/2">
+              <div class="animate-float-3 backdrop-blur-xl bg-white/90 dark:bg-slate-900/85 border border-purple-500/30 rounded-2xl p-6 sm:p-7 shadow-2xl shadow-purple-500/10 hover:border-purple-300 transition-all group">
+                <div class="flex items-center justify-between gap-3 mb-3">
+                  <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono font-bold bg-purple-500/15 text-purple-600 dark:text-purple-400 border border-purple-500/30">2026 (Present)</span>
+                  <span class="inline-flex items-center space-x-1 text-[11px] font-mono text-emerald-600 dark:text-emerald-400">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping"></span>
+                    <span>Active Now</span>
+                  </span>
+                </div>
+                <h4 class="text-xl font-bold text-slate-900 dark:text-white group-hover:text-brand-purple dark:group-hover:text-purple-300 transition-colors">2nd Year B.Tech • SIH Team Leader</h4>
+                <p class="text-sm text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
+                  Leading hackathon projects (Odisha Disaster Guardian, DEFEND AI, RUDRAM 2.0), developing interactive web applications, and actively learning modern software stacks.
+                </p>
+                <div class="mt-4 pt-3.5 border-t border-slate-200 dark:border-slate-800/80 flex flex-wrap gap-2 text-xs font-mono">
+                  <span class="px-2 py-0.5 rounded bg-purple-500/10 text-purple-700 dark:text-purple-300">Hackathon Lead</span>
+                  <span class="px-2 py-0.5 rounded bg-blue-500/10 text-blue-700 dark:text-blue-300">Full-Stack Building</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4th Item (Future | Industry-Ready Full-Stack) -> LEFT SIDE -->
+          <div class="relative flex flex-col md:flex-row md:items-center">
+            <div class="absolute left-6 md:left-1/2 -translate-x-1/2 flex items-center justify-center w-12 h-12 rounded-full bg-white dark:bg-slate-900 border-2 border-pink-500 dark:border-pink-400 shadow-[0_0_20px_rgba(244,63,94,0.6)] z-20">
+              <span class="w-4 h-4 rounded-full bg-pink-500 animate-ping"></span>
+            </div>
+            <div class="pl-16 md:pl-0 md:pr-14 md:w-1/2 order-2 md:order-1">
+              <div class="animate-float-4 backdrop-blur-xl bg-white/90 dark:bg-slate-900/85 border border-pink-500/30 rounded-2xl p-6 sm:p-7 shadow-2xl shadow-pink-500/10 hover:border-pink-300 transition-all group">
+                <div class="flex items-center justify-between gap-3 mb-3">
+                  <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono font-bold bg-pink-500/15 text-pink-600 dark:text-pink-400 border border-pink-500/30">2026 → Future</span>
+                  <span class="text-[11px] font-mono text-brand-blue dark:text-cyan-400 font-semibold">Career Horizon</span>
+                </div>
+                <h4 class="text-xl font-bold text-slate-900 dark:text-white group-hover:text-brand-pink dark:group-hover:text-pink-300 transition-colors">Industry-Ready Full-Stack Software Engineer 🚀</h4>
+                <p class="text-sm text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
+                  Targeting dynamic internship and entry-level positions to build enterprise web architectures at scale.
+                </p>
+                <div class="mt-4 pt-3.5 border-t border-slate-200 dark:border-slate-800/80 flex items-center justify-between text-xs font-mono text-slate-500 dark:text-slate-400">
+                  <span class="text-pink-600 dark:text-pink-400 font-semibold">Open for Opportunities</span>
+                  <a href="#contact" class="text-brand-blue dark:text-cyan-400 hover:underline font-semibold">Get in touch →</a>
+                </div>
+              </div>
+            </div>
+            <div class="hidden md:block absolute right-1/2 w-14 h-[2px] bg-gradient-to-l from-pink-500 to-pink-400/40 z-10"></div>
+            <div class="hidden md:block md:w-1/2 md:pl-14 text-left order-1 md:order-2">
+              <span class="text-xs font-mono text-slate-400 dark:text-slate-500 tracking-wider">NEXT FRONTIER • FUTURE</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education Section -->
+  <section id="education" class="py-20 bg-white dark:bg-[#0E131F] border-b border-slate-200/60 dark:border-slate-800/60 text-left">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mb-12">
+        <h2 class="text-xs font-mono uppercase tracking-widest text-brand-blue dark:text-brand-electric mb-3">06 // FOUNDATION</h2>
+        <h3 class="text-3xl sm:text-4xl font-serif font-bold text-slate-900 dark:text-white">Education</h3>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="p-6 rounded-2xl bg-slate-50 dark:bg-brand-darkCard border border-slate-200 dark:border-slate-800 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-2.5 py-1 rounded-md text-[11px] font-mono font-semibold bg-brand-blue/10 text-brand-blue">2025 – 2029</span>
+              <span class="text-xs text-emerald-500 font-semibold">Currently Pursuing</span>
+            </div>
+            <h4 class="text-xl font-bold text-slate-900 dark:text-white mb-1">Bachelor of Technology (B.Tech)</h4>
+            <p class="text-sm font-medium text-brand-purple mb-2">Einstein Academy of Technology and Management (EATM)</p>
+            <p class="text-xs text-slate-500">Baniatangi, Bhubaneswar, Odisha</p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-slate-200 dark:border-slate-800 text-xs font-mono text-slate-500">Current Status: <strong>2nd Year Student</strong></div>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-slate-50 dark:bg-brand-darkCard border border-slate-200 dark:border-slate-800 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-2.5 py-1 rounded-md text-[11px] font-mono bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 font-semibold">2025</span>
+              <span class="text-xs font-mono text-slate-400">Higher Secondary</span>
+            </div>
+            <h4 class="text-xl font-bold text-slate-900 dark:text-white mb-1">Higher Secondary / 12th (Science)</h4>
+            <p class="text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Sri Aurobindo Science College</p>
+            <p class="text-xs text-slate-500">Cuttack, Odisha</p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-slate-200 dark:border-slate-800 text-xs font-mono flex items-center justify-between">
+            <span class="text-slate-500">Score: 467 / 600</span>
+            <span class="font-bold text-brand-blue">77.84%</span>
+          </div>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-slate-50 dark:bg-brand-darkCard border border-slate-200 dark:border-slate-800 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-2.5 py-1 rounded-md text-[11px] font-mono bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 font-semibold">2023</span>
+              <span class="text-xs font-mono text-slate-400">Matriculation</span>
+            </div>
+            <h4 class="text-xl font-bold text-slate-900 dark:text-white mb-1">10th Secondary School</h4>
+            <p class="text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">A.B. Higher Secondary School</p>
+            <p class="text-xs text-slate-500">Basudevpur, Bhadrak, Odisha</p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-slate-200 dark:border-slate-800 text-xs font-mono flex items-center justify-between">
+            <span class="text-slate-500">Score: 407 / 600</span>
+            <span class="font-bold text-brand-purple">67.84%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 bg-white dark:bg-[#0A0D14] text-left">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mb-12">
+        <h2 class="text-xs font-mono uppercase tracking-widest text-brand-blue dark:text-brand-electric mb-3">09 // GET IN TOUCH</h2>
+        <h3 class="text-3xl sm:text-4xl font-serif font-bold text-slate-900 dark:text-white">Let's Build Something Together</h3>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        <div class="lg:col-span-5 space-y-4">
+          <div class="p-6 rounded-2xl bg-slate-50 dark:bg-brand-darkCard border border-slate-200 dark:border-slate-800 space-y-4">
+            <div>
+              <span class="text-xs text-slate-400 font-mono uppercase block mb-1">Primary Email</span>
+              <a href="mailto:ratikanta741203@gmail.com" class="text-sm font-semibold text-brand-blue dark:text-brand-electric">ratikanta741203@gmail.com</a>
+            </div>
+            <div>
+              <span class="text-xs text-slate-400 font-mono uppercase block mb-1">Phone / WhatsApp</span>
+              <a href="https://wa.me/919078835620" class="text-sm font-semibold text-slate-800 dark:text-slate-200">+91 9078835620</a>
+            </div>
+            <div>
+              <span class="text-xs text-slate-400 font-mono uppercase block mb-1">Location</span>
+              <span class="text-sm text-slate-600 dark:text-slate-300">Chakradharpur, Kujang, Jagatsinghpur, Odisha, India</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-7">
+          <form id="contact-form" class="p-6 sm:p-8 rounded-2xl bg-slate-50 dark:bg-brand-darkCard border border-slate-200 dark:border-slate-800 space-y-4">
+            <div id="contact-success-notice" class="hidden p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-600 dark:text-emerald-400 text-xs font-mono">
+              ✓ Message prepared in your mail client!
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-mono text-slate-400 mb-1">YOUR NAME</label>
+                <input id="contact-name" type="text" placeholder="e.g. Aditi Sharma" class="w-full px-4 py-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-sm">
+              </div>
+              <div>
+                <label class="block text-xs font-mono text-slate-400 mb-1">YOUR EMAIL</label>
+                <input id="contact-email" type="email" placeholder="name@domain.com" class="w-full px-4 py-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-sm">
+              </div>
+            </div>
+            <div>
+              <label class="block text-xs font-mono text-slate-400 mb-1">MESSAGE</label>
+              <textarea id="contact-message" rows="4" placeholder="Tell me about your project, team, or opportunity..." class="w-full px-4 py-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-sm"></textarea>
+            </div>
+            <button type="submit" class="w-full py-3.5 rounded-xl bg-brand-blue hover:bg-blue-600 text-white font-semibold text-sm shadow-lg shadow-brand-blue/30 transition-all">Send Message →</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-8 bg-slate-100 dark:bg-black border-t border-slate-200 dark:border-slate-800 text-center text-xs font-mono text-slate-500">
+    Designed with Electric Blue, Purple &amp; Pink Accents • Ratikanta Sahoo Portfolio
+  </footer>
+
+  <!-- Resume Modal -->
+  <div id="resume-modal" class="modal-backdrop">
+    <div class="modal-content max-w-3xl p-6 sm:p-8 text-left">
+      <div class="flex items-center justify-between pb-4 border-b border-slate-200 dark:border-slate-800">
+        <h3 class="font-serif font-bold text-xl text-slate-900 dark:text-white">Ratikanta Sahoo • Curriculum Vitae</h3>
+        <button onclick="closeModal('resume-modal')" class="p-1 text-slate-400 hover:text-white">✕</button>
+      </div>
+      <div class="py-5 space-y-4 text-xs font-mono text-slate-700 dark:text-slate-300 leading-relaxed">
+        <p><strong>RATIKANTA SAHOO</strong> | Full-Stack &amp; Web Developer | B.Tech CSE</p>
+        <p>Email: ratikanta741203@gmail.com | Phone: +91 9078835620 | Location: Odisha, India</p>
+        <hr class="border-slate-200 dark:border-slate-800">
+        <p><strong>Education:</strong> B.Tech at EATM (2025-2029) • 12th Science at Sri Aurobindo (77.84%) • 10th at A.B. High School (67.84%)</p>
+        <p><strong>Technical Stack:</strong> Java, Python, JavaScript, HTML5, CSS3, MySQL, GIS, Real-Time APIs</p>
+        <p><strong>Key Projects:</strong> Odisha Disaster Guardian, DEFEND AI, RUDRAM 2.0, AI Girl Assistant, A9 Shop &amp; Restaurant</p>
+      </div>
+      <div class="flex justify-end space-x-3 pt-4 border-t border-slate-200 dark:border-slate-800">
+        <button id="copy-resume-btn" onclick="copyResumeText()" class="px-4 py-2 rounded-xl border border-slate-300 dark:border-slate-700 text-xs font-mono">Copy Text</button>
+        <button onclick="window.print()" class="px-4 py-2 rounded-xl bg-brand-blue text-white text-xs font-mono">Print / PDF</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hire Me Modal -->
+  <div id="hire-modal" class="modal-backdrop">
+    <div class="modal-content max-w-md p-6 text-left">
+      <div class="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-slate-800">
+        <h3 class="font-serif font-bold text-lg text-slate-900 dark:text-white">Hire Ratikanta Sahoo</h3>
+        <button onclick="closeModal('hire-modal')" class="p-1 text-slate-400 hover:text-white">✕</button>
+      </div>
+      <div class="py-4 space-y-3 text-xs font-mono">
+        <div>
+          <label class="block text-slate-400 mb-1">YOUR NAME</label>
+          <input id="recruiter-name" type="text" placeholder="Aditi Sharma" class="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-700">
+        </div>
+        <div>
+          <label class="block text-slate-400 mb-1">COMPANY</label>
+          <input id="recruiter-org" type="text" placeholder="Tech Innovations Inc." class="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-700">
+        </div>
+        <div>
+          <label class="block text-slate-400 mb-1">ROLE</label>
+          <select id="recruiter-role" class="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-700">
+            <option>Full-Stack Developer Intern</option>
+            <option>Frontend Engineer Intern</option>
+            <option>Python / AI Intern</option>
+            <option>Junior Software Engineer</option>
+          </select>
+        </div>
+      </div>
+      <div class="grid grid-cols-2 gap-3 pt-3 border-t border-slate-200 dark:border-slate-800">
+        <button onclick="dispatchHireWhatsApp()" class="py-2.5 rounded-xl bg-emerald-600 text-white font-mono text-xs">WhatsApp</button>
+        <button onclick="dispatchHireEmail()" class="py-2.5 rounded-xl bg-brand-blue text-white font-mono text-xs">Send Email</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Download & View Source Files Modal -->
+  <div id="files-modal" class="modal-backdrop">
+    <div class="modal-content max-w-lg p-6 text-left">
+      <div class="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-slate-800">
+        <div>
+          <h3 class="font-serif font-bold text-lg text-slate-900 dark:text-white">Attached Web Files</h3>
+          <p class="text-xs text-slate-500 font-mono">HTML file with attached external CSS and JavaScript files</p>
+        </div>
+        <button onclick="closeModal('files-modal')" class="p-1 text-slate-400 hover:text-white">✕</button>
+      </div>
+      <div class="py-4 space-y-3 text-xs font-mono">
+        <div class="p-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/80 flex items-center justify-between">
+          <div>
+            <div class="font-bold text-brand-blue dark:text-brand-electric">📄 portfolio.html</div>
+            <div class="text-[11px] text-slate-500">Standalone Master HTML (All screens, hotlinked images, modals)</div>
+          </div>
+          <button onclick="downloadPortfolioFile('portfolio.html')" class="px-3 py-1.5 rounded-lg bg-brand-blue text-white hover:bg-blue-600 transition-colors">Download</button>
+        </div>
+
+        <div class="p-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/80 flex items-center justify-between">
+          <div>
+            <div class="font-bold text-brand-purple">🎨 style.css</div>
+            <div class="text-[11px] text-slate-500">Attached Stylesheet (Cyber obsidian dark + clean white tokens)</div>
+          </div>
+          <button onclick="downloadPortfolioFile('style.css')" class="px-3 py-1.5 rounded-lg bg-brand-purple text-white hover:bg-purple-600 transition-colors">Download</button>
+        </div>
+
+        <div class="p-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/80 flex items-center justify-between">
+          <div>
+            <div class="font-bold text-amber-500 dark:text-amber-400">⚡ script.js</div>
+            <div class="text-[11px] text-slate-500">Attached Script (Typing effect, theme toggle, modals, simulations)</div>
+          </div>
+          <button onclick="downloadPortfolioFile('script.js')" class="px-3 py-1.5 rounded-lg bg-amber-600 text-white hover:bg-amber-700 transition-colors">Download</button>
+        </div>
+      </div>
+      <div class="p-3 rounded-xl bg-blue-500/10 border border-blue-500/20 text-xs font-mono text-slate-600 dark:text-slate-300">
+        💡 <strong>How to use locally:</strong> Place <code>portfolio.html</code>, <code>style.css</code>, and <code>script.js</code> in the same folder and double-click <code>portfolio.html</code> to run anywhere offline or on any static host.
+      </div>
+      <div class="pt-4 flex justify-end">
+        <button onclick="closeModal('files-modal')" class="px-4 py-2 rounded-xl bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-mono text-xs">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Attached External JavaScript File -->
+  <script src="script.js" defer></script>
+</body>
+</html>
